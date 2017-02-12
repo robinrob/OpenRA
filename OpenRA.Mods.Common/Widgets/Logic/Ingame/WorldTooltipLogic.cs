@@ -124,10 +124,10 @@ namespace OpenRA.Mods.Common.Widgets.Logic
 			};
 
 			label.GetText = () => labelText;
-			flag.IsVisible = () => showOwner;
+			flag.IsVisible = () => false;
 			flag.GetImageCollection = () => "flags";
 			flag.GetImageName = () => flagFaction;
-			owner.IsVisible = () => showOwner;
+			owner.IsVisible = () => false;
 			owner.GetText = () => ownerName;
 			owner.GetColor = () => ownerColor;
 			extras.GetText = () => extraText;

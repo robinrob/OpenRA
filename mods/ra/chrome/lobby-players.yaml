@@ -106,6 +106,7 @@ Container@LOBBY_PLAYER_BIN:
 									Y: 6
 									Width: PARENT_RIGHT-35
 									Height: PARENT_BOTTOM-12
+									Visible: false
 						DropDownButton@FACTION:
 							X: 270
 							Width: 130

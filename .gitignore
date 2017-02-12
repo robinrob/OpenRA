@@ -78,3 +78,6 @@ StyleCopViolations.xml
 
 # Support directory
 /Support
+
+# Rob's stuff
+.idea
