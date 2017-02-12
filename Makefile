@@ -182,6 +182,15 @@ mod_ts_LIBS = $(COMMON_LIBS) $(STD_MOD_LIBS) $(mod_common_TARGET)
 PROGRAMS += mod_ts
 mod_ts: $(mod_ts_TARGET)
 
+# Bro
+mod_bro_SRCS := $(shell find OpenRA.Mods.Bro/ -iname '*.cs')
+mod_bro_TARGET = mods/ra/OpenRA.Mods.Bro.dll
+mod_bro_KIND = library
+mod_bro_DEPS = $(STD_MOD_DEPS) $(mod_common_TARGET)
+mod_bro_LIBS = $(COMMON_LIBS) $(STD_MOD_LIBS) $(mod_common_TARGET)
+PROGRAMS += mod_bro
+mod_bro: $(mod_bro_TARGET)
+
 check-scripts:
 	@echo
 	@echo "Checking for Lua syntax errors..."
@@ -324,7 +333,7 @@ tools: gamemonitor
 
 package: all-dependencies core tools docs version
 
-mods: mod_common mod_ra mod_cnc mod_d2k mod_ts
+mods: mod_common mod_ra mod_cnc mod_d2k mod_ts mod_bro
 
 all: dependencies core tools
 
@@ -394,6 +403,8 @@ install-core: default
 	@$(CP_R) mods/d2k "$(DATA_INSTALL_DIR)/mods/"
 	@$(INSTALL_PROGRAM) $(mod_d2k_TARGET) "$(DATA_INSTALL_DIR)/mods/d2k"
 	@$(CP_R) mods/modchooser "$(DATA_INSTALL_DIR)/mods/"
+	@$(INSTALL_PROGRAM) $(mod_bro_TARGET) "$(DATA_INSTALL_DIR)/mods/bro"
+	@$(CP_R) mods/bro "$(DATA_INSTALL_DIR)/mods/"
 
 	@$(INSTALL_DATA) "global mix database.dat" "$(DATA_INSTALL_DIR)/global mix database.dat"
 	@$(INSTALL_DATA) "GeoLite2-Country.mmdb.gz" "$(DATA_INSTALL_DIR)/GeoLite2-Country.mmdb.gz"
