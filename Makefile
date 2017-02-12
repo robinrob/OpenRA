@@ -184,7 +184,7 @@ mod_ts: $(mod_ts_TARGET)
 
 # Bro
 mod_bro_SRCS := $(shell find OpenRA.Mods.Bro/ -iname '*.cs')
-mod_bro_TARGET = mods/ra/OpenRA.Mods.Bro.dll
+mod_bro_TARGET = mods/bro/OpenRA.Mods.Bro.dll
 mod_bro_KIND = library
 mod_bro_DEPS = $(STD_MOD_DEPS) $(mod_common_TARGET)
 mod_bro_LIBS = $(COMMON_LIBS) $(STD_MOD_LIBS) $(mod_common_TARGET)
@@ -333,7 +333,8 @@ tools: gamemonitor
 
 package: all-dependencies core tools docs version
 
-mods: mod_common mod_ra mod_cnc mod_d2k mod_ts mod_bro
+mods: mod_common mod_ra mod_cnc mod_d2k mod_ts
+#mods: mod_common mod_ra mod_cnc
 
 all: dependencies core tools
 
